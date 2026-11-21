@@ -1,0 +1,17 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "",
+	"Description": "Starcraft Base Defense on the shared Zig core (sbd_core)",
+	"Modules": [
+		{
+			"Name": "SbdGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [ "Engine", "CoreUObject" ]
+		}
+	],
+	"Plugins": [
+		{ "Name": "Niagara", "Enabled": true }
+	]
+}

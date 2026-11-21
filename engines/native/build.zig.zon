@@ -1,0 +1,26 @@
+.{
+    .name = .sbd_native,
+    .version = "0.1.0",
+    .minimum_zig_version = "0.17.0",
+    .fingerprint = 0x7c1774c4892617b0,
+    .dependencies = .{
+        .sbd_core = .{ .path = "../../core" },
+        .sdl = .{
+            .url = "git+https://github.com/castholm/SDL.git?ref=v0.6.1+3.4.20#ce475292f172d506468218f939ef607d9be5e083",
+            .hash = "sdl-0.6.1+3.4.20-SDL--rskqQH3W9l4AJX-kdZ93M9XuhsqLrUsd2fnUE_X",
+        },
+        .wgpu_linux_x86_64 = .{
+            .url = "https://github.com/gfx-rs/wgpu-native/releases/download/v29.0.1.1/wgpu-linux-x86_64-release.zip",
+            .hash = "N-V-__8AAAVLrgM9jWFLs7n4rHyodpjIYxtBBE1No8nK0pRz",
+        },
+        .wgpu_windows_x86_64 = .{
+            .url = "https://github.com/gfx-rs/wgpu-native/releases/download/v29.0.1.1/wgpu-windows-x86_64-gnu-release.zip",
+            .hash = "N-V-__8AAIV6GgPzrhI9UgYVJuTvVgZIm4n3bPc6dMAOpPYl",
+        },
+        .openxr = .{
+            .url = "https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/release-1.1.65.tar.gz",
+            .hash = "N-V-__8AAIJabwBel4ifLl3uNRva_bLsBfIfR-MCuDo85m80",
+        },
+    },
+    .paths = .{ "build.zig", "build.zig.zon", "src" },
+}
