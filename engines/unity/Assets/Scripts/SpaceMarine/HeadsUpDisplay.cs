@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -62,6 +62,6 @@ public class HeadsUpDisplay : MonoBehaviour
 
     void LateUpdate()
     {
-        enemyTracker.text = "Enemies: " + EnemyManager.enemiesAlive;
+        enemyTracker.text = "Enemies: " + GameHost.Instance.EnemiesAlive;
     }
 }

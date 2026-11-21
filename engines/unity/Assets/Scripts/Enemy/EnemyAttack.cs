@@ -1,83 +1,53 @@
-﻿using UnityEngine;
-using System.Collections;
+using UnityEngine;
+using Sbd.Native;
 
+/// <summary>Reports whether the player is in attack range; the core owns cooldown and damage.</summary>
 public class EnemyAttack : MonoBehaviour
 {
-    public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
-    public int attackDamage = 10;               // The amount of health taken away per attack.
-
-
-    Animator anim;                              // Reference to the animator component.
-    GameObject player;                          // Reference to the player GameObject.
-    PlayerHealth playerHealth;                  // Reference to the player's health.
-    EnemyHealth enemyHealth;                    // Reference to this enemy's health.
-    bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
-    float timer;                                // Timer for counting up to the next attack.
-
+    Animator anim;
+    GameObject player;
+    EnemyHealth enemyHealth;
+    bool playerDeadSignaled;
 
     void Awake ()
     {
-        // Setting up the references.
         player = GameObject.FindGameObjectWithTag ("Player");
-        playerHealth = player.GetComponent <PlayerHealth> ();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent <Animator> ();
     }
 
-
     void OnTriggerEnter (Collider other)
     {
-        // If the entering collider is the player...
         if(other.gameObject == player)
         {
-            // ... the player is in range.
-            playerInRange = true;
+            SetInRange (1);
         }
     }
-
 
     void OnTriggerExit (Collider other)
     {
-        // If the exiting collider is the player...
         if(other.gameObject == player)
         {
-            // ... the player is no longer in range.
-            playerInRange = false;
+            SetInRange (0);
         }
     }
 
+    void SetInRange (int inRange)
+    {
+        GameHost host = GameHost.Instance;
+        if (host != null && enemyHealth.Entity != 0)
+        {
+            host.Send (SbdCmd.Make (SbdCmdKind.EnemyInRange, enemyHealth.Entity, inRange));
+        }
+    }
 
     void Update ()
     {
-        // Add the time since Update was last called to the timer.
-        timer += Time.deltaTime;
-
-        // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
+        GameHost host = GameHost.Instance;
+        if(!playerDeadSignaled && host != null && host.IsGameOver)
         {
-            // ... attack.
-            Attack ();
-        }
-
-        // If the player has zero or less health...
-        if(playerHealth.currentHealth <= 0)
-        {
-            // ... tell the animator the player is dead.
+            playerDeadSignaled = true;
             anim.SetTrigger ("PlayerDead");
-        }
-    }
-
-
-    void Attack ()
-    {
-        // Reset the timer.
-        timer = 0f;
-
-        // If the player has health to lose...
-        if(playerHealth.currentHealth > 0)
-        {
-            // ... damage the player.
-            playerHealth.TakeDamage (attackDamage);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
@@ -38,11 +38,11 @@ public class GameOverDisplayText : MonoBehaviour
                     SceneManager.LoadScene(0);
                 }
             }
-            else if (HighScoreManager.high_score_flag) {
-                text.text = "High Score!: \r\n  " + HighScoreManager.high_score;
+            else if (GameHost.Instance.HighScoreFlag) {
+                text.text = "High Score!: \r\n  " + GameHost.Instance.HighScore;
 
                 text.enabled = true;
-                //HighScoreManager.high_score_flag = false; 
+                //GameHost.Instance.HighScoreFlag = false; 
             }
             else {
                 text.text = "Game Over!";
