@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <!-- Built by core/build.sh; override with -p:SbdNativeLib=... -->
+    <SbdNativeLib Condition="'$(SbdNativeLib)' == ''">$(MSBuildThisFileDirectory)../../../core/zig-out/x86_64-linux/libsbd_core.so</SbdNativeLib>
+    <BalanceJson>$(MSBuildThisFileDirectory)../../../data/balance.json</BalanceJson>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.12.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <ProjectReference Include="../Sbd.Native/Sbd.Native.csproj" />
+    <None Include="$(SbdNativeLib)" Link="libsbd_core.so" CopyToOutputDirectory="PreserveNewest" Condition="Exists('$(SbdNativeLib)')" />
+    <None Include="$(BalanceJson)" Link="balance.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

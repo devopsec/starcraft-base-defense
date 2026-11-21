@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>StarcraftBaseDefense.Adapter</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <SbdZigOut>$(MSBuildThisFileDirectory)../../../core/zig-out/</SbdZigOut>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Stride.CommunityToolkit" Version="1.0.2" />
+    <PackageReference Include="Stride.Engine" Version="4.4.3" />
+    <PackageReference Include="Stride.Physics" Version="4.4.3" />
+    <ProjectReference Include="../../../bindings/csharp/Sbd.Native/Sbd.Native.csproj" />
+    <!-- Native core next to the executable (built by core/build.sh). -->
+    <None Include="$(SbdZigOut)x86_64-linux/libsbd_core.so" Link="libsbd_core.so" CopyToOutputDirectory="PreserveNewest" Condition="Exists('$(SbdZigOut)x86_64-linux/libsbd_core.so')" />
+    <None Include="$(SbdZigOut)x86_64-windows/sbd_core.dll" Link="sbd_core.dll" CopyToOutputDirectory="PreserveNewest" Condition="Exists('$(SbdZigOut)x86_64-windows/sbd_core.dll')" />
+    <None Include="$(MSBuildThisFileDirectory)../../../data/balance.json" Link="balance.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

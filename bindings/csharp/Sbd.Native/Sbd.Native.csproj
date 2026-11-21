@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net10.0</TargetFrameworks>
+    <!-- Unity 6 compiles these same sources with C# 9 against .NET Standard 2.1: keep it that way. -->
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Sbd.Native</RootNamespace>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+</Project>
