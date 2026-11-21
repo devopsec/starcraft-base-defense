@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "enemy": {
+    "start_health": 100,
+    "score_value": 10,
+    "sink_speed": 2.5,
+    "sink_duration": 2.0,
+    "attack_damage": 10,
+    "attack_cooldown": 0.5
+  },
+  "spawner": {
+    "spawn_interval": 3.0,
+    "max_alive": 64
+  },
+  "player": {
+    "start_health": 100
+  },
+  "weapon": {
+    "damage_per_shot": 20,
+    "fire_rate": 0.15,
+    "range": 100.0
+  },
+  "seed": 1
+}

@@ -1,0 +1,7 @@
+.{
+    .name = .sbd_core,
+    .version = "0.1.0",
+    .minimum_zig_version = "0.17.0",
+    .fingerprint = 0x383b5bd32fd5dacf,
+    .paths = .{ "build.zig", "build.zig.zon", "src", "include", "tests" },
+}
