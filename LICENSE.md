@@ -1,4 +1,4 @@
-### Original Survival Shooter Turotial is governed by the Unity Asset Store EULA.
+### Original Survival Shooter Tutorial is governed by the Unity Asset Store EULA.
 
 ### Also, the following components are governed by the licenses indicated below:
 
@@ -22,8 +22,8 @@ Colin Gallacher, 2018
 https://www.gnu.org/licenses/gpl-3.0.en.html
 
 
-4. StarCraft Base Defense Modifications
+4. StarCraft Base Defense Project
 
 GNU GENERAL PUBLIC LICENSE v3.0
-Tyler Moore, 2019
+Tyler Moore, 2026
 https://www.gnu.org/licenses/gpl-3.0.en.html

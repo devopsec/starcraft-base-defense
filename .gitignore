@@ -175,3 +175,95 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# --- Multi-engine layout ---
+# Re-include native plugins that a global *.so/*.a ignore rule would drop
+!*.so
+!*.so.meta
+!*.a
+# Unity (project lives in engines/unity/)
+engines/unity/[Ll]ibrary/
+engines/unity/[Tt]emp/
+engines/unity/[Oo]bj/
+engines/unity/[Bb]uilds/
+engines/unity/[Ll]ogs/
+engines/unity/UserSettings/
+# Zig
+.zig-cache/
+zig-cache/
+zig-out/
+zig-pkg/
+# .NET
+bindings/**/bin/
+bindings/**/obj/
+engines/godot/.godot/
+engines/godot/**/bin/
+engines/godot/**/obj/
+engines/stride/**/bin/
+engines/stride/**/obj/
+# Unreal
+engines/unreal/**/Binaries/
+engines/unreal/**/Intermediate/
+engines/unreal/**/Saved/
+engines/unreal/**/DerivedDataCache/
+# Sandbox/shell dotfiles that are not part of the project
+/.bash_profile
+/.bashrc
+/.gitconfig
+/.gitmodules
+/.mcp.json
+/.profile
+/.ripgreprc
+/.zprofile
+/.zshrc
+/.vscode
+
+# Godot adapter: native libs and balance copy are produced by tools/sync-godot-core.sh
+engines/godot/native/*
+engines/godot/data/balance.json
+
+# just pipeline cache (configured backend, downloaded Godot .NET)
+/.cache/
+
+#=======================================
+# Project Exclusions
+#=======================================
+
+# local agent settings
+.aiassistant/*
+.agents/*
+.amazonq/*
+.augment/*
+.claude/*
+.codeium/*
+.codex/*
+.cline/*
+.continue/*
+.copilot/*
+.cursor/*
+.devin/*
+.gemini/*
+.junie/*
+.kilocode/*
+.opencode/*
+.roo/*
+.tabnine/*
+.trae/*
+.windsurf/*
+
+# local audit data
+/.audits/
+
+# silly agents
+/.output.txt
+
+#=======================================
+# Project Inclusions
+#=======================================
+
+# shared project settings
+!.aiignore
+!.dockerignore
+!.gitattributes
+!.gitignore
+!.shellcheckrc

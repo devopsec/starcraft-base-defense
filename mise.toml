@@ -1,0 +1,5 @@
+# Repo-local toolchain only. Build, test and run recipes live in the justfile.
+[tools]
+zig = "0.17.1"
+dotnet = "10"
+just = "latest"
